@@ -1,0 +1,13 @@
+<h1>Hacker News Clone </h1>
+
+<% a = 1 %>
+<% @recent_posts.each do |t| %> 
+<%= @recent_posts.find(a).url %> <br>
+Post by: <%= @recent_posts.find(a).user.user_name %> <br>
+comments: <a href="/comment/<%=@recent_posts.find(a).id%>"><%= @recent_posts.find(a).comments.length %> </a><br>
+<br>
+<% a += 1 %> 
+<% end %>
+<a href="/newpost"> create new post </a> <br>
+<a href="/newuser"> create new user </a> <br>
+<a href="/login"> login </a> 

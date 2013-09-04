@@ -1,0 +1,33 @@
+
+
+<%= @post.url%> <br>
+<br>
+
+<%=@post.id%> <br>
+
+<% a = 0 %>
+<% while a < @post.comments.where(post_id:@post.id).length %>
+<%= @post.comments.where(post_id:@post.id)[a].user.user_name %>: 
+<%= @post.comments.where(post_id:@post.id)[a].text %> <br>
+<% a += 1 %>
+
+<% end %> 
+<br>
+<br>
+New Comment 
+
+<form action="/create_comment/<%=@post.id%>" method="POST">
+
+<label for="name"> user id </label> 
+<input type="integer" name="userid"> <br>
+<label for="text"> Text </label> 
+<input type="text" name="text"> 
+<input type="submit" value="submit">
+</form>
+
+<a href='/'>go to main page </a>
+
+
+
+
+
